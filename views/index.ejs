@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous" defer></script>
+		<link rel="stylesheet" href="/css/styles.css">
+		<link rel="icon" href="/images/rangoli.png" type="image/icon type">
+		<script src="/js/index.js" defer></script>
+		<title>Design Pattern Registry</title>
+	</head>
+	<body>
+		<div class="container-fluid" id="main-container">
+			<!-- Navigation Bar -->
+			<nav class="navbar navbar-dark bg-dark fixed-top" id="navigationBar">
+				<div class="container-fluid" id="navBarWrapper">
+					<a class="navbar-brand" onclick="location.href='./'">
+						<img src="/images/rangoli.png" alt="" width="35">
+						<label>Design Pattern Registry</label>
+					</a>
+					<button class="btn btn-sm btn-primary" onclick="location.href='/help'" type="button" id="helpBtn">Help</button>
+				</div>
+			</nav>
+
+			<!-- Main body -->
+			<div class="container" id="main-body">
+				<div class="container" id="main-groups-wrapper">
+					<div class="container" id="main-groups">
+						<!-- Design Pattern Tabs Wrapper -->
+						<div class="tab-wrap">
+							<!-- Creational Design Patterns Tab -->
+							<input type="radio" id="tab1" name="tabGroup1" class="tab" checked>
+							<label for="tab1" class="tab-label" id="tab-label1">
+								Creational
+							</label>
+
+							<!-- Structural Design Patterns Tab -->
+							<input type="radio" id="tab2" name="tabGroup1" class="tab">
+							<label for="tab2" class="tab-label" id="tab-label2">
+								Structural
+							</label>
+
+							<!-- Behavioral Design Patterns Tab -->
+							<input type="radio" id="tab3" name="tabGroup1" class="tab">
+							<label for="tab3" class="tab-label" id="tab-label3">
+								Behavioral
+							</label>
+
+							<!-- Creational Design Patterns Content -->
+							<div class="tab__content" id="creational-groups-wrapper">
+								<h5>Select a Creational Design Patterns to Begin:</h5>
+								<p>
+									These patterns provide various object creation mechanisms, 
+									which increase flexibility and reuse of existing code.
+								</p>
+								<div class="grid-container">
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="abstract-factory" name="sbtype" value="0" class="btn creational-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/abstract-factory.png" alt="" id="abstract-factory-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Abstract Factory</strong>
+												</span>
+												<span class="container subgroup-description">
+													Abstract Factory is a creational design pattern that lets you produce 
+													families of related objects without specifying their concrete classes.
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="factory-method" name="sbtype" value="1" class="btn creational-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/factory-method.png" alt="" id="factory-method-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Factory Method</strong>
+												</span>
+												<span class="container subgroup-description">
+													Factory Method is a creational design pattern that provides an interface for 
+													creating objects in a superclass, but allows subclasses to alter the type of 
+													objects that will be created.										
+												</span>
+				
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="builder"  name="sbtype" value="2" class="btn creational-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/builder.png" alt="" id="builder-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Builder</strong> 
+												</span>
+												<span class="container subgroup-description">
+													Builder is a creational design pattern that lets you construct 
+													complex objects step by step. The pattern allows you to produce 
+													different types and representations of an object using the same 
+													construction code.										
+												</span>
+											</button>
+										</form>
+									</div>  
+								</div>
+							</div>
+
+							<!-- Structural Design Patterns Content -->
+							<div class="tab__content" id="structural-groups-wrapper">
+								<h5>Select a Structural Design Patterns to Begin: </h5>
+								<p>
+									These patterns explain how to assemble objects and classes into 
+									larger structures while keeping these structures flexible and efficient.							
+								</p>
+								<div class="grid-container">
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="adaptor" name="sbtype" value="3" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/adapter.png" alt="" id="adaptor-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Adaptor</strong>
+												</span>
+												<span class="container subgroup-description">
+													Adapter is a structural design pattern that allows objects 
+													with incompatible interfaces to collaborate.										
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="composite" name="sbtype" value="4" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/composite.png" alt="" id="composite-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Composite</strong>
+												</span>
+												<span class="container subgroup-description">
+													Composite is a structural design pattern that lets you compose 
+													objects into tree structures and then work with these structures 
+													as if they were individual objects.										
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="proxy" name="sbtype" value="5" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/proxy.png" alt="" id="proxy-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Proxy</strong> 
+												</span>
+												<span class="container subgroup-description">
+													Proxy is a structural design pattern that lets you provide 
+													a substitute or placeholder for another object. A proxy 
+													controls access to the original object, allowing you to perform 
+													something either before or after the request gets through to the 
+													original object.										
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="decorator" name="sbtype" value="6" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/decorator.png" alt="" id="decorator-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Decorator</strong>
+												</span>
+												<span class="container subgroup-description">
+													Decorator is a structural design pattern that lets you attach 
+													new behaviors to objects by placing these objects inside 
+													special wrapper objects that contain the behaviors.
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="bridge" name="sbtype" value="7" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/bridge.png" alt="" id="bridge-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Bridge</strong>
+												</span>
+												<span class="container subgroup-description">
+													Bridge is a structural design pattern that lets you split a 
+													large class or a set of closely related classes into two 
+													separate hierarchies—abstraction and implementation
+													—which can be developed independently of each other.
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="flyweight" name="sbtype" value="8" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/flyweight.png" alt="" id="flyweight-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Flyweight</strong> 
+												</span>
+												<span class="container subgroup-description">
+													Flyweight is a structural design pattern that lets you fit more 
+													objects into the available amount of RAM by sharing common 
+													parts of state between multiple objects instead of keeping all 
+													of the data in each object.										
+												</span>
+											</button>
+										</form>
+									</div>  
+								</div>
+							</div>
+
+							<!-- Behavioral Design Patterns Content -->
+							<div class="tab__content" id="behavioral-groups-wrapper">
+								<h5>Select a Behavioral Design Patterns to Begin:</h5>
+								<p>
+									These patterns are concerned with algorithms and the assignment of responsibilities between objects.							
+								</p>
+								<div class="grid-container">
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="chain-of-responsibility"name="sbtype" value="9" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/chain-of-responsibility.png" alt="" id="chain-of-responsibility-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Chain of Responsibility</strong>
+												</span>
+												<span class="container subgroup-description">
+													Chain of Responsibility is a behavioral design pattern that lets 
+													you pass requests along a chain of handlers. Upon receiving a 
+													request, each handler decides either to process the request or 
+													to pass it to the next handler in the chain.										
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="command" name="sbtype" value="10" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/command.png" alt="" id="command-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Command</strong>
+												</span>
+												<span class="container subgroup-description">
+													Command turns a request into a stand-alone object that 
+													contains all information about the request. This transformation lets 
+													you pass requests as a method arguments, delay or queue 
+													a request's execution, and support undoable operations.									
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="iterator" name="sbtype" value="11" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/iterator.png" alt="" id="iterator-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Iterator</strong> 
+												</span>
+												<span class="container subgroup-description">
+													Iterator is a behavioral design pattern that lets you traverse 
+													elements of a collection without exposing its underlying
+													representation (list, stack, tree, etc.).										
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="mediator" name="sbtype" value="12" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/mediator.png" alt="" id="mediator-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Mediator</strong>
+												</span>
+												<span class="container subgroup-description">
+													Mediator is a behavioral design pattern that lets you reduce 
+													chaotic dependencies between objects. The pattern restricts 
+													direct communications between the objects and forces them 
+													to collaborate only via a mediator object.
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="visitor" name="sbtype" value="13" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/visitor.png" alt="" id="visitor-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Visitor</strong>
+												</span>
+												<span class="container subgroup-description">
+													Visitor is a behavioral design pattern that lets you separate 
+													algorithms from the objects on which they operate.
+												</span>
+											</button>
+										</form>
+									</div>
+									<div class="grid-item">
+										<form action="/form" method="GET">
+											<button id="observer" name="sbtype" value="14" class="btn structural-group">
+												<span class="container subgroup-img-wrapper">
+													<img src="/images/observer.png" alt="" id="observer-img">
+												</span>
+												<span class="container subgroup-title">
+													<strong>Observer</strong> 
+												</span>
+												<span class="container subgroup-description">
+													Observer is a behavioral design pattern that lets you define 
+													a subscription mechanism to notify multiple objects about 
+													any events that happen to the object they're observing.									
+												</span>
+											</button>
+										</form>
+									</div>  
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

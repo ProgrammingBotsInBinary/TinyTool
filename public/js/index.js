@@ -1,7 +1,6 @@
 // Tabs Color Change
 let tabLabels = document.getElementsByClassName('tab-label');
 let radioButtons = document.getElementsByClassName('tab');
-let abstractFactoryBtn = document.getElementById('abstract-factory');
 
 window.onload = function () {
     for (let i = 0; i < radioButtons.length; i++) {
@@ -29,21 +28,3 @@ for (let i = 0; i < radioButtons.length; i++) {
         }
    })
 }
-
-function loadFormsPage(type){
-    console.log(type);
-
-    //fetch(__dirname + "/views/help.html");
-    // window.location.href = __dirname + '/views/help.html';
-
-    var fs = require('fs');
-    fs.readFile( __dirname + '/views/help.html', function (err, data) {
-        if (err) {
-            throw err; 
-        }
-    //console.log(data.toString());
-    });
-}
-
-
-
