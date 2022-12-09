@@ -21,7 +21,10 @@ app.get('/help', (req, response) => {
 })
 
 app.get('/form', (req, response) => {
-	response.render('form');
+	let type = req.query.type;
+	response.render('form', {
+        type: type
+    });
 })
 
 app.get('/output', (req, response) => {
