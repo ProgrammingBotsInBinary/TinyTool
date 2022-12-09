@@ -12,6 +12,10 @@ app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/images', express.static(__dirname + '/public/images'));
 app.use('/js', express.static(__dirname + '/public/js'));
 
+app.set('views', './views')
+app.set('view engine', 'ejs')
+
+
 app.get('', (req, res) => {
 	res.sendFile(__dirname + '/views/index.html');
 })
