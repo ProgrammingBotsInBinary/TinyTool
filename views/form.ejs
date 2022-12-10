@@ -16,12 +16,19 @@
         <title>Forms</title>
         <script> 
 
-
+            
         </script>
     </head>
     <body>
         <h3>
-            Subgroup: <%= subgroups[type] %> 
+            Subgroup: <% if(subgroups[type] == "iterator") {%>
+                    <h2>wow!</h2>
+           <% } %> 
+
+            <% for (var i = 0; i < subgroups.length - 10; i++) {%>
+				<button><%= subgroups[type] %></button>
+            <% } %> 
+
         </h3>
     </body>
 </html>

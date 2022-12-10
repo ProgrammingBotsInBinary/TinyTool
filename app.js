@@ -1,4 +1,26 @@
 const express = require('express');
+
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+	host:'localhost',
+	port:3306,
+	database:'patternDB',
+	user:'root',
+	password:''
+});
+var database_connection_status = '';
+connection.connect(function(error){
+	if(error){
+		//database_connection_status = '<h3 class="text-center text-danger">MySQL Database Connection Error</h3>';
+		console.log('Database connection error');
+	}
+	else{
+		//database_connection_status = '<h3 class="text-center text-danger">Successfully connected to MySQL Database</h3>';
+		console.log('Database connection was successful');
+	}
+});
+
+
 const app = express();
 const port = 3000;
 
