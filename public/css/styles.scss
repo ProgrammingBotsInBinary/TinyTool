@@ -45,7 +45,7 @@ body {
   flex-direction: column;
   height: 290px;
   transition: 0.5s opacity ease-in, 0.8s transform ease;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 10px 8px;
 }
 
 .creational-group:hover, .structural-group:hover {
@@ -104,7 +104,10 @@ body {
 
 .tab__content {
 	overflow: scroll;
-	height: 73vh;
+	height: 75vh;
+	display: flex;
+  	flex-direction: column;
+  	justify-content: space-between;
 
 	p {
 		margin-bottom: 30px;
@@ -213,7 +216,7 @@ $tab-wrap-border-radius: 10px;
 #form-wrapper {
   background-color: white;
   border-radius: 10px;
-	padding: 10px;
+	padding: 30px;
   overflow: scroll;
   height: 80vh;
 }
@@ -221,9 +224,15 @@ $tab-wrap-border-radius: 10px;
 .submit-wrapper {
   display: inline-flex !important;
   justify-content: end !important;
-  padding: 10px;
+  padding: 0 !important;
+  padding-top: 20px !important;
 }
 
 .form-group {
   padding: 10px;
+}
+
+.credits {
+    display: flex; 
+    justify-content: end;
 }

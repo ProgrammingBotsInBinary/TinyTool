@@ -37,78 +37,98 @@
 			<div class="container" id="main-body">
 				<div class="container" id="form-wrapper">
                     <h2 style="padding: 10px;"><%= subgroups[type] %> </h2>
-                    <form action="GET">
+                    <form action="GET" id="design-form">
                     <% if (subgroups[type] == "Factory Method") { %>
-                            <div class="form-group">
-                                <label for="input1"><b>Q1:</b> What's the parent class name? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input1" placeholder="">
-                            </div>       
-                            <div class="form-group">
-                                <label for="input2"><b>Q2:</b> What's the subclass name (1)? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input2" placeholder="">
-                            </div>      
-                            <div class="form-group">
-                                <label for="input3"><b>Q3:</b> What's the subclass name (2)?</label>
-                                <input type="text" class="form-control" id="input3" placeholder="">
-                            </div>      
-                            <div class="form-group">
-                                <label for="input4"><b>Q4:</b> What's the subclass name (3)?</label>
-                                <input type="text" class="form-control" id="input4" placeholder="">
-                            </div>      
-                            <div class="form-group">
-                                <label for="input5"><b>Q4:</b> What's the factory method's name? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input5" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input6"><b>Q5:</b> What is the parent function's name (1)?</label>
-                                <input type="text" class="form-control" id="input6" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input7"><b>Q6:</b> What is the parent function's name (2)?</label>
-                                <input type="text" class="form-control" id="input7" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input8"><b>Q7:</b> What is the parent function's name (3)?</label>
-                                <input type="text" class="form-control" id="input8" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input9"><b>Q8:</b> What is the description for the design pattern? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input9" placeholder="">
-                            </div>
+                        <div class="row g-3">
+								<div class="col form-group">
+									<label for="input1"><b>Q1:</b> What's the parent class name? <span style="color: red;">*</span></label>
+									<input type="text" class="form-control" id="input1" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input2"><b>Q2:</b> What's the subclass name (1)? <span style="color: red;">*</span></label>
+									<input type="text" class="form-control" id="input2" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input3"><b>Q3:</b> What's the subclass name (2)?</label>
+									<input type="text" class="form-control" id="input3" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input4"><b>Q4:</b> What's the subclass name (3)?</label>
+									<input type="text" class="form-control" id="input4" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input5"><b>Q5:</b> What's the factory method's name? <span style="color: red;">*</span></label>
+									<input type="text" class="form-control" id="input5" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input6"><b>Q6:</b> What is the parent function's name (1)?</label>
+									<input type="text" class="form-control" id="input6" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input7"><b>Q7:</b> What is the parent function's name (2)?</label>
+									<input type="text" class="form-control" id="input7" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input8"><b>Q8:</b> What is the parent function's name (3)?</label>
+									<input type="text" class="form-control" id="input8" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input9"><b>Q9:</b> What is the description for the design pattern? <span style="color: red;">*</span></label>
+									<input type="text" class="form-control" id="input9" placeholder="">
+								</div>
+								<div class="col form-group">
+								</div>
+							</div>
                     <% }
                         else if (subgroups[type] == "Abstract Factory") { %>
-                            <div class="form-group">
-                                <label for="input1"><b>Q1:</b> What's the abstract class name? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input1" placeholder="">
-                            </div>       
-                            <div class="form-group">
-                                <label for="input2"><b>Q2:</b> What's the first variant's name? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input2" placeholder="">
-                            </div>      
-                            <div class="form-group">
-                                <label for="input3"><b>Q3:</b> What's the second variant's name?</label>
-                                <input type="text" class="form-control" id="input3" placeholder="">
-                            </div>      
-                            <div class="form-group">
-                                <label for="input4"><b>Q4:</b> What's the third variant's name?</label>
-                                <input type="text" class="form-control" id="input4" placeholder="">
-                            </div>      
-                            <div class="form-group">
-                                <label for="input5"><b>Q4:</b> What's the first creation method name? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input5" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input6"><b>Q5:</b> What's the second creation method name?</label>
-                                <input type="text" class="form-control" id="input6" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input7"><b>Q6:</b> What's the third creation method name?</label>
-                                <input type="text" class="form-control" id="input7" placeholder="">
-                            </div>
-                            <div class="form-group">
-                                <label for="input8"><b>Q8:</b> What is the description for the design pattern? <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input8" placeholder="">
-                            </div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input1"><b>Q1:</b> What's the abstract class name? <span style="color: red;">*</span></label>
+                                	<input type="text" class="form-control" id="input1" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input2"><b>Q2:</b> What's the first variant's name? <span style="color: red;">*</span></label>
+                                	<input type="text" class="form-control" id="input2" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input3"><b>Q3:</b> What's the second variant's name?</label>
+                                	<input type="text" class="form-control" id="input3" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input4"><b>Q4:</b> What's the third variant's name?</label>
+                                	<input type="text" class="form-control" id="input4" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input5"><b>Q5:</b> What's the first creation method name? <span style="color: red;">*</span></label>
+                                	<input type="text" class="form-control" id="input5" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input6"><b>Q6:</b> What's the second creation method name?</label>
+                                	<input type="text" class="form-control" id="input6" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input7"><b>Q7:</b> What's the third creation method name?</label>
+                                	<input type="text" class="form-control" id="input7" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input8"><b>Q8:</b> What is the description for the design pattern? <span style="color: red;">*</span></label>
+                                	<input type="text" class="form-control" id="input8" placeholder="">
+								</div>
+							</div>
                     <% }
                         else if (subgroups[type] == "Builder") { %>
                             <div class="form-group">
