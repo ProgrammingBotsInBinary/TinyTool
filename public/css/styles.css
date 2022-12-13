@@ -249,11 +249,13 @@ body {
   height: 80vh;
 }
 
-.submit-wrapper {
+.btn-wrapper {
   display: inline-flex !important;
-  justify-content: end !important;
+  justify-content: space-between !important;
   padding: 0 !important;
   padding-top: 20px !important;
+  position: absolute;
+  bottom: 0;
 }
 
 .form-group {
@@ -263,4 +265,10 @@ body {
 .credits {
   display: flex;
   justify-content: end;
+}
+
+#design-form {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }/*# sourceMappingURL=styles.css.map */

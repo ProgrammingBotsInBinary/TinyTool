@@ -36,10 +36,10 @@
             <!-- Main body -->
 			<div class="container" id="main-body">
 				<div class="container" id="form-wrapper">
-                    <h2 style="padding: 10px;"><%= subgroups[type] %> </h2>
-                    <form action="GET" id="design-form">
+					<form action="GET" id="design-form">
+                    	<h2 style="padding: 10px;"><%= subgroups[type] %> </h2>
                     <% if (subgroups[type] == "Factory Method") { %>
-                        <div class="row g-3">
+                        	<div class="row g-3">
 								<div class="col form-group">
 									<label for="input1"><b>Q1:</b> What's the parent class name? <span style="color: red;">*</span></label>
 									<input type="text" class="form-control" id="input1" placeholder="">
@@ -131,10 +131,44 @@
 							</div>
                     <% }
                         else if (subgroups[type] == "Builder") { %>
-                            <div class="form-group">
-                                <label for="input1"><b>Q1:</b>  <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="input1" placeholder="">
-                            </div>       
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input1"><b>Q1:</b> What is the class name? <span style="color: red;">*</span></label>
+                                	<input type="text" class="form-control" id="input1" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input2"><b>Q2:</b> What is the first builder method's name? <span style="color: red;">*</span></label>
+                                	<input type="text" class="form-control" id="input2" placeholder="">
+								</div>
+							</div>   
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input3"><b>Q3:</b> What is the second builder method's name?</label>
+                                	<input type="text" class="form-control" id="input3" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input4"><b>Q4:</b> What is the third builder method's name?</label>
+                                	<input type="text" class="form-control" id="input4" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input5"><b>Q5:</b> What is the fourth builder method's name?</label>
+                                	<input type="text" class="form-control" id="input5" placeholder="">
+								</div>
+								<div class="col form-group">
+									<label for="input6"><b>Q6:</b> What is the fifth builder method's name?</label>
+                                	<input type="text" class="form-control" id="input6" placeholder="">
+								</div>
+							</div>
+							<div class="row g-3">
+								<div class="col form-group">
+									<label for="input7"><b>Q7:</b> What is the sixth builder method's name?</label>
+                                	<input type="text" class="form-control" id="input7" placeholder="">
+								</div>
+								<div class="col form-group">
+								</div>
+							</div>        
                     <% }
                         else if (subgroups[type] == "Adaptor") { %>
                             <div class="form-group">
@@ -209,7 +243,8 @@
                             </div>          
                     <% } %>
 
-                            <div class="submit-wrapper container">      
+                            <div class="btn-wrapper container">      
+								<button type="reset" class="btn btn-secondary" onclick="location.href='./'">Back</button>
                                 <button class="btn btn-primary" id="submitBtn" type="submit" name="submit-btn">Submit</button>
                             </div>
                     </form>
