@@ -1,6 +1,7 @@
 const express = require('express');
 const ejs = require('ejs');
 var bodyParser = require("body-parser");
+var async = require('async');
 
 const mysql = require('mysql');
 const connection = mysql.createConnection({
@@ -131,12 +132,30 @@ app.get('/output', (req, response) => {
 	// let FM_parentfunction1 = req.query.FM_parent_functionname1;
 	// let FM_parentfunction2 = req.query.FM_parent_functionname2;
 	// let FM_Description = req.query.FM_description;
+	async.series({
+		slider: function(cb){
+			connection.query('SELECT * FROM factorymethodtable', function(err, result, client){
+				cb(err, result);
+			})
+		},
+		new: function(cb){
+			connection.query('SELECT * FROM abstractfactorytable', function(err, result, client){
+				cb(err, result)
+			})
+		}, function(error, results){
+			if(!error){
+				response.render('output', results);
+			}
+		}
 
-	 connection.query('SELECT * FROM factorymethodtable', function (err, result) {
-		if (err) throw err;
+	});
 
-		response.render('output', {data: result});
-	  });
+
+	//  connection.query('SELECT * FROM factorymethodtable', function (err, result) {
+	// 	if (err) throw err;
+
+	// 	response.render('output', {data: result});
+	//   });
 	//   connection.query('SELECT * FROM abstractfactorytable', function (err, result) {
 
 	// 	if (err) throw err;
