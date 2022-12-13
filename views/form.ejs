@@ -21,6 +21,18 @@
 		<title><%= subgroups[type] %> </title>
 	</head>
 	<body>
+		<script defer>
+			function openNav() {
+				document.getElementById("myNav").style.height = "100%";
+				}
+	
+			function closeNav() {
+				document.getElementById("myNav").style.height = "0%";
+			}
+		</script>	
+
+
+
 		<div class="container-fluid" id="main-container">
 			<!-- Navigation Bar -->
 			<nav class="navbar navbar-dark bg-dark fixed-top" id="navigationBar">
@@ -29,55 +41,113 @@
 						<img src="/images/rangoli.png" alt="" width="35">
 						<label>Design Pattern Registry</label>
 					</a>
-					<button class="btn btn-sm btn-primary" onclick="location.href='/help'" type="button" id="helpBtn">Help</button>
+					<!-- Help Overlay -->
+					<div id="myNav" class="overlay">
+						<a href="javascript:void(0)"
+						class="closebtn" onclick="closeNav()">
+						x
+						</a>
+						<div class="overlay-content">
+						<h1>Hi! How can we help?</h1>
+							<div class="grid-container-2">
+	
+								<div class="grid-item-2">
+										<button id="contact info" name="type" value="0" class="btn helpWrap">
+											<span class="container help-title">
+												<strong>Contact Info</strong>
+											</span>
+											<span class="container help-description">
+												Email: ryanpizzas@gmail.com<br>
+												Phone Number: 123-456-7890
+											</span>
+										</button>
+									</form>
+								</div>
+	
+								<div class="grid-item-2">
+										<button id="contact info" name="type" value="0" class="btn helpWrap">
+											<span class="container help-title">
+												<strong>Purpose</strong>
+											</span>
+											<span class="container help-description">
+												The main objective of our project is to provide the customer with a software tool that is capable
+												of identifying design pattern subgroups and saving design patterns to a database that can also be searched for later.<br><br>
+												The main goals are stated below:<br>
+												• Provide customers with an easy-to-use tool to create design patterns<br>
+												• Saving a created design pattern to a database
+											</span>
+										</button>
+									</form>
+								</div>
+	
+								<div class="grid-item-2">
+									<button id="contact info" name="type" value="0" class="btn helpWrap">
+										<span class="container help-title">
+											<strong>Quickstart guide</strong>
+										</span>
+										<span class="container help-description">
+											1. Select a category from Creational, Structural, or Behavioral<br>
+											2. Select one of the subgroups from that category<br>
+											3. Fill out the required information on the form<br>
+											4. Submit form<br>
+											5. Your Done!<br>
+										</span>
+									</button>
+								</div>
+	
+							</div>
+						</div>
+					</div>
+					<button class="button buttonRound" span style="font-size:15px;cursor:pointer;color:rgb(0, 0, 0)" onclick="openNav()">Help</span></button>
+	
 				</div>
 			</nav>
 
             <!-- Main body -->
 			<div class="container" id="main-body">
 				<div class="container" id="form-wrapper">
-					<form method="POST" id="design-form" action="/output">
+					<form  action="/output" method="GET" id="design-form">
                     	<h2 style="padding: 10px;"><%= subgroups[type] %> </h2>
 						<input type="hidden" name="subgroup" id="subgroup-type" value="<%= subgroups[type] %>">
                     <% if (subgroups[type] == "Factory Method") { %>
                         	<div class="row g-3">
 								<div class="col form-group">
 									<label for="input1"><b>Q1:</b> What's the parent class name? <span style="color: red;">*</span></label>
-									<input type="text" class="form-control" id="input1" placeholder="">
+									<input type="text" class="form-control" id="FM_parent_classname" name="FM_parent_classname" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input2"><b>Q2:</b> What's the subclass name (1)? <span style="color: red;">*</span></label>
-									<input type="text" class="form-control" id="input2" placeholder="">
+									<input type="text" class="form-control" id="input2" name="FM_subclass_name1" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input3"><b>Q3:</b> What's the subclass name (2)?</label>
-									<input type="text" class="form-control" id="input3" placeholder="">
+									<input type="text" class="form-control" id="input3" name="FM_subclass_name2" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input4"><b>Q4:</b> What's the subclass name (3)?</label>
-									<input type="text" class="form-control" id="input4" placeholder="">
+									<input type="text" class="form-control" id="input4" name="FM_subclass_name3" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input5"><b>Q5:</b> What's the factory method's name? <span style="color: red;">*</span></label>
-									<input type="text" class="form-control" id="input5" placeholder="">
+									<input type="text" class="form-control" id="input5" name="FM_method_name" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input6"><b>Q6:</b> What is the parent function's name (1)?</label>
-									<input type="text" class="form-control" id="input6" placeholder="">
+									<input type="text" class="form-control" id="input6" name="FM_parent_functionname1" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input7"><b>Q7:</b> What is the parent function's name (2)?</label>
-									<input type="text" class="form-control" id="input7" placeholder="">
+									<input type="text" class="form-control" id="input7" name="FM_parent_functionname2" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input8"><b>Q8:</b> What is the description for the design pattern? <span style="color: red;">*</span></label>
-									<input type="text" class="form-control" id="input8" placeholder="">
+									<input type="text" class="form-control" id="input8" name="FM_description" placeholder="">
 								</div>
 							</div>
                     <% }
@@ -85,41 +155,41 @@
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input1"><b>Q1:</b> What's the abstract class name? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input1" placeholder="">
+                                	<input type="text" class="form-control" id="input1" name="AF_classname" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input2"><b>Q2:</b> What's the first variant's name? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input2" placeholder="">
+                                	<input type="text" class="form-control" id="input2" name="AF_firstvariant" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input3"><b>Q3:</b> What's the second variant's name?</label>
-                                	<input type="text" class="form-control" id="input3" placeholder="">
+                                	<input type="text" class="form-control" id="input3" name="AF_secondvariant" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input4"><b>Q4:</b> What's the third variant's name?</label>
-                                	<input type="text" class="form-control" id="input4" placeholder="">
+                                	<input type="text" class="form-control" id="input4" name="AF_thirdvariant" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input5"><b>Q5:</b> What's the first creation method name? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input5" placeholder="">
+                                	<input type="text" class="form-control" id="input5" name="AF_firstmethod" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input6"><b>Q6:</b> What's the second creation method name?</label>
-                                	<input type="text" class="form-control" id="input6" placeholder="">
+                                	<input type="text" class="form-control" id="input6" name="AF_secondmethod" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input7"><b>Q7:</b> What's the third creation method name?</label>
-                                	<input type="text" class="form-control" id="input7" placeholder="">
+                                	<input type="text" class="form-control" id="input7" name="AF_thirdmethod" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input8"><b>Q8:</b> What is the description for the design pattern? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input8" placeholder="">
+                                	<input type="text" class="form-control" id="input8" name="AF_description" placeholder="">
 								</div>
 							</div>
                     <% }
@@ -127,37 +197,37 @@
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input1"><b>Q1:</b> What is the class name? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input1" placeholder="">
+                                	<input type="text" class="form-control" id="input1" name="B_classname" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input2"><b>Q2:</b> What is the first builder method's name? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input2" placeholder="">
+                                	<input type="text" class="form-control" id="input2" name="B_firstmethod" placeholder="">
 								</div>
 							</div>   
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input3"><b>Q3:</b> What is the second builder method's name?</label>
-                                	<input type="text" class="form-control" id="input3" placeholder="">
+                                	<input type="text" class="form-control" id="input3" name="B_secondmethod" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input4"><b>Q4:</b> What is the third builder method's name?</label>
-                                	<input type="text" class="form-control" id="input4" placeholder="">
+                                	<input type="text" class="form-control" id="input4" name="B_thirdmethod" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input5"><b>Q5:</b> What is the fourth builder method's name?</label>
-                                	<input type="text" class="form-control" id="input5" placeholder="">
+                                	<input type="text" class="form-control" id="input5" name="B_fourthmethod" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input6"><b>Q6:</b> What is the fifth builder method's name?</label>
-                                	<input type="text" class="form-control" id="input6" placeholder="">
+                                	<input type="text" class="form-control" id="input6" name="B_fifthmethod" placeholder="">
 								</div>
 							</div>
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input7"><b>Q7:</b> What is the sixth builder method's name?</label>
-                                	<input type="text" class="form-control" id="input7" placeholder="">
+                                	<input type="text" class="form-control" id="input7" name="B_sixthmethod" placeholder="">
 								</div>
 								<div class="col form-group">
 								</div>
@@ -167,11 +237,11 @@
 							<div class="row g-3">
 								<div class="col form-group">
 									<label for="input1"><b>Q1:</b> What is the name of the adapter class? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input1" placeholder="">
+                                	<input type="text" class="form-control" id="input1" name="AD_adapterclass" placeholder="">
 								</div>
 								<div class="col form-group">
 									<label for="input2"><b>Q2:</b> What are the two incompatible classes? <span style="color: red;">*</span></label>
-                                	<input type="text" class="form-control" id="input2" placeholder="">
+                                	<input type="text" class="form-control" id="input2" name="AD_twoclasses" placeholder="">
 								</div>
 							</div>     
 							<div class="row g-3">
@@ -282,7 +352,7 @@
 
                             <div class="btn-wrapper container">      
 								<button type="reset" class="btn btn-secondary" onclick="location.href='./'">Back</button>
-                                <button class="btn btn-primary" id="submitBtn" type="submit" name="submit-btn">Submit</button>
+                                <button class="btn btn-primary" id="submitBtn" type="submit" name="submit-btn" >Submit</button>
                             </div>
                     </form>
 				</div>
