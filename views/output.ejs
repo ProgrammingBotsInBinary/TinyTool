@@ -1,5 +1,3 @@
-<% const sb = subgroup %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +7,14 @@
     <title><%= sb %></title>
 </head>
 <body>
-    <%= FM_parentname %> </h2>
-
+    <ul>
+        <% data.forEach(entry => { %>
+          <li><%= entry.FM_parent_classname %></li>
+          <li><%= entry.FM_subclass_name1 %></li>
+          <li><%= entry.FM_subclass_name2 %></li>
+          <li><%= entry.FM_subclass_name3 %></li>
+        <?% }) %>
+    </ul>
 </body>
 </html>
 

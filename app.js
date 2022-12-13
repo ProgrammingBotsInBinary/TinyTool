@@ -65,6 +65,10 @@ app.get('/output', (req, response) => {
 	var FM_parentfunction1 = "";
 	var FM_parentfunction2 = "";
 	var FM_Description = "";
+	// var AF_abstractName = "";
+	// var AF_firstVariant = "";
+	// var AF_secondVariant = "";
+	// var AF_thirdVariant = "";
 	if(subgroup == "Factory Method"){
 		FM_parentname = req.query.FM_parent_classname;
 		FM_subclass1 = req.query.FM_subclass_name1;
@@ -98,18 +102,24 @@ app.get('/output', (req, response) => {
 	// let FM_parentfunction2 = req.query.FM_parent_functionname2;
 	// let FM_Description = req.query.FM_description;
 
-	console.log(subgroup);
-	response.render('output', {
-		subgroup: subgroup,
-		FM_parentname: FM_parentname,
-		FM_subclass1: FM_subclass1,
-		FM_subclass2: FM_subclass2,
-		FM_subclass3: FM_subclass3,
-		FM_methodname: FM_methodname,
-		FM_parentfunction1: FM_parentfunction1,
-		FM_parentfunction2: FM_parentfunction2,
-		FM_Description: FM_Description
-	});
+	 connection.query('SELECT * FROM factorymethodtable', async function (err, result) {
+		if (err) throw err;
+
+		response.render('output', {data: result});
+	  });
+
+	// console.log(subgroup);
+	// response.render('output', {
+	// 	subgroup: subgroup,
+	// 	FM_parentname: FM_parentname,
+	// 	FM_subclass1: FM_subclass1,
+	// 	FM_subclass2: FM_subclass2,
+	// 	FM_subclass3: FM_subclass3,
+	// 	FM_methodname: FM_methodname,
+	// 	FM_parentfunction1: FM_parentfunction1,
+	// 	FM_parentfunction2: FM_parentfunction2,
+	// 	FM_Description: FM_Description
+	// });
 });
 
 app.get('/', (req, response) => {
