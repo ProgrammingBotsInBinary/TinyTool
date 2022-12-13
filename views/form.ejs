@@ -75,7 +75,7 @@
 												</span>
 												<span class="container help-description">
 													The main objective of our project is to provide the customer with a software tool that is capable
-													of identifying design pattern subgroups and saving design patterns to a database that can also be searched for later.<br><br>
+													of identifying design pattern subgroups and saving design patterns to a database that can also be displayed later.<br><br>
 													The main goals are stated below:<br>
 													• Provide customers with an easy-to-use tool to create design patterns<br>
 													• Saving a created design pattern to a database
@@ -235,8 +235,10 @@
                                 	<input type="text" class="form-control" id="input7" name="B_sixthmethod" placeholder="">
 								</div>
 								<div class="col form-group">
+									<label for="input8"><b>Q8:</b> What is the description for the design pattern?</label>
+                                	<input type="text" class="form-control" id="input8" name="B_description" placeholder="">
 								</div>
-							</div>        
+							</div>
                     <% }
                         else if (subgroups[type] == "Adaptor") { %>
 							<div class="row g-3">
@@ -357,7 +359,7 @@
 
                             <div class="btn-wrapper container">      
 								<button type="reset" class="btn btn-secondary" onclick="location.href='./'">Back</button>
-                                <button class="btn btn-primary" id="submitBtn" type="submit" name="submit-btn" >Submit</button>
+                                <button class="btn btn-primary" id="submitBtn" type="submit" name="submitBtn" >Submit</button>
                             </div>
                     </form>
 				</div>

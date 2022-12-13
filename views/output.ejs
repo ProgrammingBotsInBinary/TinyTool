@@ -12,19 +12,13 @@
 		<script src="/js/index.js" defer></script>
 		<title>Your Registry</title>
 	</head>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+	</style>
 	<body>
 	
-        <script>
-            function openNav() {
-                document.getElementById("myNav").style.height = "100%";
-            }
-
-            function closeNav() {
-                document.getElementById("myNav").style.height = "0%";
-            }
-        </script>	
-
-
 		<div class="container-fluid" id="main-container">
 
 			<!-- Navigation bar -->
@@ -67,7 +61,7 @@
 												</span>
 												<span class="container help-description">
 													The main objective of our project is to provide the customer with a software tool that is capable
-													of identifying design pattern subgroups and saving design patterns to a database that can also be searched for later.<br><br>
+													of identifying design pattern subgroups and saving design patterns to a database that can also be displayed later.<br><br>
 													The main goals are stated below:<br>
 													• Provide customers with an easy-to-use tool to create design patterns<br>
 													• Saving a created design pattern to a database
@@ -100,33 +94,39 @@
 				</div>
 			</nav>
 
-			<!-- Button trigger modal -->
+			<!-- Factory Method trigger modal -->
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#factoryModal">
 				Factory Method Entries
 			</button>
 
-			<!-- Button trigger modal -->
+			<!-- Abstract Factory trigger modal -->
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractModal">
 				Abstract Factory Entries
 			</button>
 
-			<!-- Button trigger modal -->
+			<!-- Builder trigger modal -->
 			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#builderModal">
 				Builder Entries
 			</button>
+
+			<button class="btn btn-primary" id="homeBtn" onclick="location.href='./'">Create a New Entry</button>
+
+
+
 			
 			<!-- Modal -->
 			<div class="modal fade" id="factoryModal" tabindex="-1" aria-labelledby="factoryModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h1 class="modal-title fs-5" id="factoryModalLabel">Factory Method Entries</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<% if(data.length > 0){ %>
+							<% if(factoryResult.length > 0){ %>
 								<table>
 									<tr>
+										<th>#</th>
 										<th>Parent Class</th>
 										<th>Subclass One</th>
 										<th>Subclass Two</th>
@@ -136,17 +136,18 @@
 										<th>Parent Function Two</th>
 										<th>Description</th>
 									</tr>
-										<% if (data.length) { %>
-											<% for (var i = 0; i < data.length; i++) { %>
+										<% if (factoryResult.length) { %>
+											<% for (var i = 0; i < factoryResult.length; i++) { %>
 												<tr>
-													<td><%= data[i].parentClass %></td>  
-													<td><%= data[i].subClass1 %></td>  
-													<td><%= data[i].subClass2 %></td>  
-													<td><%= data[i].subClass3 %></td>  
-													<td><%= data[i].sharedFunction %></td>  
-													<td><%= data[i].parentFunc1 %></td>  
-													<td><%= data[i].parentFunc2 %></td>  
-													<td><%= data[i].descr %></td> 
+													<td><%= i + 1 %></td>  
+													<td><%= factoryResult[i].parentClass %></td>  
+													<td><%= factoryResult[i].subClass1 %></td>  
+													<td><%= factoryResult[i].subClass2 %></td>  
+													<td><%= factoryResult[i].subClass3 %></td>  
+													<td><%= factoryResult[i].sharedFunction %></td>  
+													<td><%= factoryResult[i].parentFunc1 %></td>  
+													<td><%= factoryResult[i].parentFunc2 %></td>  
+													<td><%= factoryResult[i].descr %></td> 
 												</tr>
 											<% }
 											} %>
@@ -162,16 +163,17 @@
   
 			<!-- Modal -->
 			<div class="modal fade" id="abstractModal" tabindex="-1" aria-labelledby="abstractModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h1 class="modal-title fs-5" id="abstractModalLabel">Abstract Factory Entries</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<% if(data.length > 0){ %>
+							<% if(abstractResult.length > 0){ %>
 								<table>
 									<tr>
+										<th>#</th>
 										<th>Parent Class</th>
 										<th>First Variant</th>
 										<th>Second Variant</th>
@@ -181,17 +183,18 @@
 										<th>Third Method</th>
 										<th>Description</th>
 									</tr>
-										<% if (data.length) { %>
-											<% for (var i = 0; i < data.length; i++) { %>
+										<% if (abstractResult.length) { %>
+											<% for (var i = 0; i < abstractResult.length; i++) { %>
 												<tr>
-													<td><%= data[i].parentClass %></td>  
-													<td><%= data[i].subClass1 %></td>  
-													<td><%= data[i].subClass2 %></td>  
-													<td><%= data[i].subClass3 %></td>  
-													<td><%= data[i].sharedFunction %></td>  
-													<td><%= data[i].parentFunc1 %></td>  
-													<td><%= data[i].parentFunc2 %></td>  
-													<td><%= data[i].descr %></td> 
+													<td><%= i + 1 %></td>  
+													<td><%= abstractResult[i].abstractName %></td>  
+													<td><%= abstractResult[i].firstVariant %></td>  
+													<td><%= abstractResult[i].secondVariant %></td>  
+													<td><%= abstractResult[i].thirdVariant %></td>  
+													<td><%= abstractResult[i].firstMethod %></td>  
+													<td><%= abstractResult[i].secondMethod %></td>  
+													<td><%= abstractResult[i].thirdMethod %></td>  
+													<td><%= abstractResult[i].descr %></td> 
 												</tr>
 											<% }
 											} %>
@@ -207,16 +210,17 @@
 
 			<!-- Modal -->
 			<div class="modal fade" id="builderModal" tabindex="-1" aria-labelledby="builderModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<h1 class="modal-title fs-5" id="builderModalLabel">Builder Entries</h1>
 							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<% if(data.length > 0){ %>
+							<% if(builderResult.length > 0){ %>
 								<table>
 									<tr>
+										<th>#</th>
 										<th>Parent Class</th>
 										<th>First Method</th>
 										<th>Second Method</th>
@@ -225,17 +229,18 @@
 										<th>Fifth Method</th>
 										<th>Sixth Method</th>
 									</tr>
-										<% if (data.length) { %>
-											<% for (var i = 0; i < data.length; i++) { %>
+										<% if (builderResult.length) { %>
+											<% for (var i = 0; i < builderResult.length; i++) { %>
 												<tr>
-													<td><%= data[i].parentClass %></td>  
-													<td><%= data[i].subClass1 %></td>  
-													<td><%= data[i].subClass2 %></td>  
-													<td><%= data[i].subClass3 %></td>  
-													<td><%= data[i].sharedFunction %></td>  
-													<td><%= data[i].parentFunc1 %></td>  
-													<td><%= data[i].parentFunc2 %></td>  
-													<td><%= data[i].descr %></td> 
+													<td><%= i + 1 %></td>   
+													<td><%= builderResult[i].className %></td>  
+													<td><%= builderResult[i].firstMethod %></td>  
+													<td><%= builderResult[i].secondMethod %></td>  
+													<td><%= builderResult[i].thirdMethod %></td>  
+													<td><%= builderResult[i].fourthMethod %></td>  
+													<td><%= builderResult[i].fifthMethod %></td>  
+													<td><%= builderResult[i].sixthMethod %></td>  
+													<td><%= builderResult[i].descr %></td>  
 												</tr>
 											<% }
 											} %>
@@ -248,6 +253,16 @@
 					</div>
 				</div>
 			</div>
+
+			<script>
+				function openNav() {
+					document.getElementById("myNav").style.height = "100%";
+				}
+	
+				function closeNav() {
+					document.getElementById("myNav").style.height = "0%";
+				}
+			</script>	
 
     </body>
 </html>
