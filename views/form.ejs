@@ -36,70 +36,75 @@
 		<div class="container-fluid" id="main-container">
 			<!-- Navigation Bar -->
 			<nav class="navbar navbar-dark bg-dark fixed-top" id="navigationBar">
-				<div class="container-fluid" id="navBarWrapper">
+				<div class="container-fluid" id="navBarWrapper" style="display: flex;">
 					<a class="navbar-brand" onclick="location.href='./'">
 						<img src="/images/rangoli.png" alt="" width="35">
 						<label>Design Pattern Registry</label>
 					</a>
-					<!-- Help Overlay -->
-					<div id="myNav" class="overlay">
-						<a href="javascript:void(0)"
-						class="closebtn" onclick="closeNav()">
-						x
-						</a>
-						<div class="overlay-content">
-						<h1>Hi! How can we help?</h1>
-							<div class="grid-container-2">
-	
-								<div class="grid-item-2">
+
+					<span class="container" style="width: 200px; display: flex; justify-content: end; margin: 0;">
+						<button class="btn btn-primary" style="font-size: 15px;">Registry</button>
+
+						<!-- Help Overlay -->
+						<div id="myNav" class="overlay" style="overflow-y:scroll;">
+							<a href="javascript:void(0)"
+							class="closebtn" onclick="closeNav()">
+							x
+							</a>
+							<div class="overlay-content">
+							<h1>Hi! How can we help?</h1>
+								<div class="grid-container-2">
+		
+									<div class="grid-item-2">
+											<button id="contact info" name="type" value="0" class="btn helpWrap">
+												<span class="container help-title">
+													<strong>Contact Info</strong>
+												</span>
+												<span class="container help-description">
+													Email: ryanpizzas@gmail.com<br>
+													Phone Number: 123-456-7890
+												</span>
+											</button>
+										</form>
+									</div>
+		
+									<div class="grid-item-2">
+											<button id="contact info" name="type" value="0" class="btn helpWrap">
+												<span class="container help-title">
+													<strong>Purpose</strong>
+												</span>
+												<span class="container help-description">
+													The main objective of our project is to provide the customer with a software tool that is capable
+													of identifying design pattern subgroups and saving design patterns to a database that can also be searched for later.<br><br>
+													The main goals are stated below:<br>
+													• Provide customers with an easy-to-use tool to create design patterns<br>
+													• Saving a created design pattern to a database
+												</span>
+											</button>
+										</form>
+									</div>
+		
+									<div class="grid-item-2">
 										<button id="contact info" name="type" value="0" class="btn helpWrap">
 											<span class="container help-title">
-												<strong>Contact Info</strong>
+												<strong>Quickstart guide</strong>
 											</span>
 											<span class="container help-description">
-												Email: ryanpizzas@gmail.com<br>
-												Phone Number: 123-456-7890
+												1. Select a category from Creational, Structural, or Behavioral<br>
+												2. Select one of the subgroups from that category<br>
+												3. Fill out the required information on the form<br>
+												4. Submit form<br>
+												5. Your Done!<br>
 											</span>
 										</button>
-									</form>
+									</div>
+		
 								</div>
-	
-								<div class="grid-item-2">
-										<button id="contact info" name="type" value="0" class="btn helpWrap">
-											<span class="container help-title">
-												<strong>Purpose</strong>
-											</span>
-											<span class="container help-description">
-												The main objective of our project is to provide the customer with a software tool that is capable
-												of identifying design pattern subgroups and saving design patterns to a database that can also be searched for later.<br><br>
-												The main goals are stated below:<br>
-												• Provide customers with an easy-to-use tool to create design patterns<br>
-												• Saving a created design pattern to a database
-											</span>
-										</button>
-									</form>
-								</div>
-	
-								<div class="grid-item-2">
-									<button id="contact info" name="type" value="0" class="btn helpWrap">
-										<span class="container help-title">
-											<strong>Quickstart guide</strong>
-										</span>
-										<span class="container help-description">
-											1. Select a category from Creational, Structural, or Behavioral<br>
-											2. Select one of the subgroups from that category<br>
-											3. Fill out the required information on the form<br>
-											4. Submit form<br>
-											5. Your Done!<br>
-										</span>
-									</button>
-								</div>
-	
 							</div>
 						</div>
-					</div>
-					<button class="button buttonRound" span style="font-size:15px;cursor:pointer;color:rgb(0, 0, 0)" onclick="openNav()">Help</span></button>
-	
+
+						<button class="btn btn-primary" id="helpBtn" span style="margin-left: 6px; font-size: 15px;" onclick="openNav()">Help</span></button>
+					</span>
 				</div>
 			</nav>
 

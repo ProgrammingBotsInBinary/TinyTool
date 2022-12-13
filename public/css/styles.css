@@ -1,12 +1,12 @@
 body {
   padding-top: 100px;
-  background-color: #070708;
+  background-color: #131315;
   overflow: hidden;
 }
 
 #navigationBar {
   padding: 20px;
-  background-color: #070708 !important;
+  background-color: #131315 !important;
 }
 
 .navbar-brand {
@@ -18,10 +18,6 @@ body {
 }
 .navbar-brand img {
   cursor: pointer;
-}
-
-#helpBtn {
-  font-size: 18px;
 }
 
 #main-groups-wrapper, #main-groups {
