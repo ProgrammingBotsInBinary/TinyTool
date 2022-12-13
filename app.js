@@ -9,6 +9,8 @@ const connection = mysql.createConnection({
 	user:'root',
 	password:''
 });
+//var database = require('../database');
+
 var database_connection_status = '';
 connection.connect(function(error){
 	if(error){
@@ -55,20 +57,46 @@ app.get('/form', (req, response) => {
 
 app.get('/output', (req, response) => {
 	let subgroup = req.query.subgroup;
+	var FM_parentname = "";
+	var FM_subclass1 = "";
+	var FM_subclass2 = "";
+	var FM_subclass3 = "";
+	var FM_methodname = "";
+	var FM_parentfunction1 = "";
+	var FM_parentfunction2 = "";
+	var FM_Description = "";
 	if(subgroup == "Factory Method"){
-		let FM_parentname = req.query.FM_parent_classname;
-		let FM_subclass1 = req.query.FM_subclass_name1;
-		let FM_subclass2 = req.query.FM_subclass_name2;
-		let FM_subclass3 = req.query.FM_subclass_name3;
-		let FM_methodname = req.query.FM_method_name;
-		let FM_parentfunction1 = req.query.FM_parent_functionname1;
-		let FM_parentfunction2 = req.query.FM_parent_functionname2;
-		let FM_Description = req.query.FM_description;
+		FM_parentname = req.query.FM_parent_classname;
+		FM_subclass1 = req.query.FM_subclass_name1;
+		FM_subclass2 = req.query.FM_subclass_name2;
+		FM_subclass3 = req.query.FM_subclass_name3;
+		FM_methodname = req.query.FM_method_name;
+		FM_parentfunction1 = req.query.FM_parent_functionname1;
+		FM_parentfunction2 = req.query.FM_parent_functionname2;
+		FM_Description = req.query.FM_description;
 
-		
+
+		var query = "INSERT INTO factorymethodtable (parentClass, subClass1, subClass2, subClass3, sharedFunction, parentFunc1, parentFunc2, descr) VALUES " + 
+		"('" + FM_parentname + "', '" + FM_subclass1 + "', '" + FM_subclass2 + "', '" + FM_subclass3 + "', '" + FM_methodname + "', '" + FM_parentfunction1 + "', '" + FM_parentfunction2 + "', '" + FM_Description + "')";
+
+		connection.query(query, function(error, data){
+			if(error){
+				throw error;
+			}
+			else{
+				console.log('Success?');
+			}
+		});
 
 	}
-	
+	// let FM_parentname = req.query.FM_parent_classname;
+	// let FM_subclass1 = req.query.FM_subclass_name1;
+	// let FM_subclass2 = req.query.FM_subclass_name2;
+	// let FM_subclass3 = req.query.FM_subclass_name3;
+	// let FM_methodname = req.query.FM_method_name;
+	// let FM_parentfunction1 = req.query.FM_parent_functionname1;
+	// let FM_parentfunction2 = req.query.FM_parent_functionname2;
+	// let FM_Description = req.query.FM_description;
 
 	console.log(subgroup);
 	response.render('output', {
