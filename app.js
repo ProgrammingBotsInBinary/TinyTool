@@ -1,4 +1,5 @@
 const express = require('express');
+const ejs = require('ejs');
 var bodyParser = require("body-parser");
 
 const mysql = require('mysql');
@@ -65,10 +66,14 @@ app.get('/output', (req, response) => {
 	var FM_parentfunction1 = "";
 	var FM_parentfunction2 = "";
 	var FM_Description = "";
-	// var AF_abstractName = "";
-	// var AF_firstVariant = "";
-	// var AF_secondVariant = "";
-	// var AF_thirdVariant = "";
+	var AF_abstractName = "";
+	var AF_firstVariant = "";
+	var AF_secondVariant = "";
+	var AF_thirdVariant = "";
+	var AF_firstMethod = "";
+	var AF_secondMethod = "";
+	var AF_thirdMethod = "";
+	var AF_Description = "";
 	if(subgroup == "Factory Method"){
 		FM_parentname = req.query.FM_parent_classname;
 		FM_subclass1 = req.query.FM_subclass_name1;
@@ -93,6 +98,31 @@ app.get('/output', (req, response) => {
 		});
 
 	}
+	if(subgroup == "Abstract Factory"){
+		AF_abstractName = req.query.AF_classname;
+		AF_firstVariant = req.query.AF_firstvariant;
+		AF_secondVariant = req.query.AF_secondvariant;
+		AF_thirdVariant = req.query.AF_thirdvariant;
+		AF_firstMethod = req.query.AF_firstmethod;
+		AF_secondMethod = req.query.AF_secondmethod;
+		AF_thirdMethod = req.query.AF_thirdmethod;
+		AF_Description = req.query.AF_description;
+
+		var query = "INSERT INTO abstractfactorytable (abstractName, firstVariant, secondVariant, thirdVariant, firstMethod, secondMethod, thirdMethod, descr) VALUES " + 
+		"('" + AF_abstractName + "', '" + AF_firstVariant + "', '" + AF_secondVariant + "', '" + AF_thirdVariant + "', '" + AF_firstMethod + "', '" + AF_secondMethod + "', '" + AF_thirdMethod + "', '" + AF_Description + "')";
+
+		connection.query(query, function(error, data){
+			if(error){
+				throw error;
+			}
+			else{
+				console.log('Success?');
+			}
+		});
+
+
+
+	}
 	// let FM_parentname = req.query.FM_parent_classname;
 	// let FM_subclass1 = req.query.FM_subclass_name1;
 	// let FM_subclass2 = req.query.FM_subclass_name2;
@@ -102,11 +132,17 @@ app.get('/output', (req, response) => {
 	// let FM_parentfunction2 = req.query.FM_parent_functionname2;
 	// let FM_Description = req.query.FM_description;
 
-	 connection.query('SELECT * FROM factorymethodtable', async function (err, result) {
+	 connection.query('SELECT * FROM factorymethodtable', function (err, result) {
 		if (err) throw err;
 
 		response.render('output', {data: result});
 	  });
+	//   connection.query('SELECT * FROM abstractfactorytable', function (err, result) {
+
+	// 	if (err) throw err;
+
+	// 	response.render('output', {data1: result});
+	//   });
 
 	// console.log(subgroup);
 	// response.render('output', {

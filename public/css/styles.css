@@ -14,6 +14,10 @@ body {
 }
 .navbar-brand label {
   font-size: 25px;
+  cursor: pointer;
+}
+.navbar-brand img {
+  cursor: pointer;
 }
 
 #helpBtn {
