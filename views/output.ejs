@@ -26,6 +26,8 @@
 
 
 		<div class="container-fluid" id="main-container">
+
+			<!-- Navigation bar -->
 			<nav class="navbar navbar-dark bg-dark fixed-top" id="navigationBar">
 				<div class="container-fluid" id="navBarWrapper" style="display: flex;">
 					<a class="navbar-brand" onclick="location.href='./'">
@@ -98,36 +100,155 @@
 				</div>
 			</nav>
 
-            <% if(data.length > 0){ %>
-                
-                <table style="color: white">
-                    <h3 style="color: white">Factory Method</h3>
-                    <tr>
-                        <th>Parent Class</th>
-                        <th>Subclass One</th>
-                        <th>Subclass Two</th>
-                        <th>Subclass Three</th>         
-                        <th>Factory Method Function</th>
-                        <th>Parent Function One</th>
-                        <th>Parent Function Two</th>
-                        <th>Description</th>
-                    </tr>
-                        <% if (data.length) { %>
-                            <% for (var i = 0; i < data.length; i++) { %>
-                                <tr>
-                                    <td><%= data[i].parentClass %></td>  
-                                    <td><%= data[i].subClass1 %></td>  
-                                    <td><%= data[i].subClass2 %></td>  
-                                    <td><%= data[i].subClass3 %></td>  
-                                    <td><%= data[i].sharedFunction %></td>  
-                                    <td><%= data[i].parentFunc1 %></td>  
-                                    <td><%= data[i].parentFunc2 %></td>  
-                                    <td><%= data[i].descr %></td> 
-                                </tr>
-                            <% }
-                            } %>
-                </table> 
-            <% } %>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#factoryModal">
+				Factory Method Entries
+			</button>
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#abstractModal">
+				Abstract Factory Entries
+			</button>
+
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#builderModal">
+				Builder Entries
+			</button>
+			
+			<!-- Modal -->
+			<div class="modal fade" id="factoryModal" tabindex="-1" aria-labelledby="factoryModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="factoryModalLabel">Factory Method Entries</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<% if(data.length > 0){ %>
+								<table>
+									<tr>
+										<th>Parent Class</th>
+										<th>Subclass One</th>
+										<th>Subclass Two</th>
+										<th>Subclass Three</th>         
+										<th>Factory Method Function</th>
+										<th>Parent Function One</th>
+										<th>Parent Function Two</th>
+										<th>Description</th>
+									</tr>
+										<% if (data.length) { %>
+											<% for (var i = 0; i < data.length; i++) { %>
+												<tr>
+													<td><%= data[i].parentClass %></td>  
+													<td><%= data[i].subClass1 %></td>  
+													<td><%= data[i].subClass2 %></td>  
+													<td><%= data[i].subClass3 %></td>  
+													<td><%= data[i].sharedFunction %></td>  
+													<td><%= data[i].parentFunc1 %></td>  
+													<td><%= data[i].parentFunc2 %></td>  
+													<td><%= data[i].descr %></td> 
+												</tr>
+											<% }
+											} %>
+								</table> 
+							<% } %>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+  
+			<!-- Modal -->
+			<div class="modal fade" id="abstractModal" tabindex="-1" aria-labelledby="abstractModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="abstractModalLabel">Abstract Factory Entries</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<% if(data.length > 0){ %>
+								<table>
+									<tr>
+										<th>Parent Class</th>
+										<th>First Variant</th>
+										<th>Second Variant</th>
+										<th>Third Variant</th>         
+										<th>First Method</th>
+										<th>Second Method</th>
+										<th>Third Method</th>
+										<th>Description</th>
+									</tr>
+										<% if (data.length) { %>
+											<% for (var i = 0; i < data.length; i++) { %>
+												<tr>
+													<td><%= data[i].parentClass %></td>  
+													<td><%= data[i].subClass1 %></td>  
+													<td><%= data[i].subClass2 %></td>  
+													<td><%= data[i].subClass3 %></td>  
+													<td><%= data[i].sharedFunction %></td>  
+													<td><%= data[i].parentFunc1 %></td>  
+													<td><%= data[i].parentFunc2 %></td>  
+													<td><%= data[i].descr %></td> 
+												</tr>
+											<% }
+											} %>
+								</table> 
+							<% } %>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="builderModal" tabindex="-1" aria-labelledby="builderModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="builderModalLabel">Builder Entries</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<% if(data.length > 0){ %>
+								<table>
+									<tr>
+										<th>Parent Class</th>
+										<th>First Method</th>
+										<th>Second Method</th>
+										<th>Third Method</th>         
+										<th>Fourth Method</th>
+										<th>Fifth Method</th>
+										<th>Sixth Method</th>
+									</tr>
+										<% if (data.length) { %>
+											<% for (var i = 0; i < data.length; i++) { %>
+												<tr>
+													<td><%= data[i].parentClass %></td>  
+													<td><%= data[i].subClass1 %></td>  
+													<td><%= data[i].subClass2 %></td>  
+													<td><%= data[i].subClass3 %></td>  
+													<td><%= data[i].sharedFunction %></td>  
+													<td><%= data[i].parentFunc1 %></td>  
+													<td><%= data[i].parentFunc2 %></td>  
+													<td><%= data[i].descr %></td> 
+												</tr>
+											<% }
+											} %>
+								</table> 
+							<% } %>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
     </body>
 </html>
 
